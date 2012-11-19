@@ -1,0 +1,11 @@
+Skip Picking Coordinates
+false
+
+Storyboard Panel Width
+1024
+
+Storyboard Panel Height
+576
+
+Source File Format
+png
