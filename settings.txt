@@ -7,5 +7,5 @@ Storyboard Panel Width
 Storyboard Panel Height
 576
 
-Source File Format
+Save in File Format
 png

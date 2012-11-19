@@ -79,6 +79,7 @@ void draw() {
     }
     saveFrame(fileDir + "/" + fileName + "_" + counterShot + "." + fileFormat);
     counterShot++;
+    if(counterShot>6*photoArrayNames.size()) exit();
   }
 }
 
@@ -99,7 +100,7 @@ void countFrames() {
         File dataFolder = new File(sketchPath, "data/"); 
         String[] allFiles = dataFolder.list();
         for (int j=0;j<allFiles.length;j++) {
-          if (allFiles[j].toLowerCase().endsWith(sourceFormat)) {
+          if (allFiles[j].toLowerCase().endsWith("png")||allFiles[j].toLowerCase().endsWith("jpg")||allFiles[j].toLowerCase().endsWith("jpeg")||allFiles[j].toLowerCase().endsWith("gif")||allFiles[j].toLowerCase().endsWith("tga")) {
             photoArrayNames.add(allFiles[j]);
           }
         }
