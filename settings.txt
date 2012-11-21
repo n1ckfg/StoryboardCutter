@@ -9,3 +9,6 @@ Storyboard Panel Height
 
 Save in File Format
 png
+
+Zero Padding
+true

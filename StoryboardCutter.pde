@@ -28,6 +28,7 @@ float buttonSize = 30;
 float buttonX  = width-buttonSize; 
 float buttonY = buttonSize;
 color buttonColor = color(255,0,0);
+boolean doZeroPadding = true;
 
 void setup() {
   Settings settings = new Settings("settings.txt");
@@ -77,9 +78,13 @@ void draw() {
     else if (counterBoard>counterBoardMax){
       exit();
     }
-    saveFrame(fileDir + "/" + fileName + "_" + counterShot + "." + fileFormat);
+    if(!doZeroPadding){
+      saveFrame(fileDir + "/" + fileName + "_" + counterShot + "." + fileFormat);
+    }else{
+      saveFrame(fileDir + "/" + fileName + "_" + zeroPadding(counterShot,counterPanelMax*photoArrayNames.size()) + "." + fileFormat);
+    }
     counterShot++;
-    if(counterShot>6*photoArrayNames.size()) exit();
+    if(counterShot>counterPanelMax*photoArrayNames.size()) exit();
   }
 }
 
@@ -107,3 +112,7 @@ void countFrames() {
     }catch(Exception e){ }
   }
 
+String zeroPadding(int _val, int _maxVal){
+  String q = ""+_maxVal;
+  return nf(_val,q.length());
+}
